@@ -18,7 +18,7 @@ export const fetchAllUsers = (source_lang,target_lang) => async (dispatch) =>{
         text = text.replaceAll('&','%26');
           text = text.replaceAll('+','%2B');
           text = text.replaceAll('=','%3D')
-        if(target_lang!==undefined && source_lang!==undefined)
+        if(target_lang!==undefined && source_lang!==undefined && target_lang!=='en')
         {
             const  change_data = await Promise.all(
                 data.map(async(user) => {
