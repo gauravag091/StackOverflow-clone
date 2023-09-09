@@ -15,8 +15,7 @@ export const askQuestion = (questionData, navigate) => async (dispatch)=> {
        const new_user = {result:data.result,token:user['token']}
        dispatch({type:'AUTH',data:new_user});
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-    dispatch(fetchAllUsers())
-    dispatch(fetchAllQuestions());
+    dispatch(fetchAllUsers('en',localStorage.getItem('i18nextLng')));
     dispatch(fetchAllQuestions('en',localStorage.getItem('i18nextLng')))
     navigate('/')
   } catch (error) {
@@ -51,7 +50,6 @@ export const fetchAllQuestions = (source_lang,target_lang) => async (dispatch) =
               ans_text = ans_text.replaceAll('=','%3D');
 
               const ans_test = await translateapi(ans_text,'en',target_lang);
-              console.log(ans_test);
               const translated_ans = ans_test['translated Text'];
               const [ans_body,ans_userAnswered] = translated_ans?.split("+");
               const new_ans = {...answer,answerBody:ans_body,userAnswered:ans_userAnswered};
@@ -84,8 +82,8 @@ export const fetchAllQuestions = (source_lang,target_lang) => async (dispatch) =
 export const deleteQuestion = (id, navigate) => async(dispatch) =>{
   try {
     await api.deleteQuestion(id)
-    dispatch(fetchAllQuestions())
-    dispatch(fetchAllUsers());
+    dispatch(fetchAllQuestions('en',localStorage.getItem('i18nextLng')))
+    dispatch(fetchAllUsers('en',localStorage.getItem('i18nextLng')));
     navigate('/')
   } catch (error) {
     console.log(error)
@@ -98,8 +96,8 @@ export const postAnswer = (answerdata) => async (dispatch) =>{
    const {data} = await api.postAnswer(id, noOfAnswers, answerBody, userAnswered, userId);
    dispatch({type:"POST_ANSWER",payload:data})
    dispatch({type:'UPDATE_CURRENT_USER', payload: data})
-   dispatch(fetchAllQuestions());
-   dispatch(fetchAllUsers());
+   dispatch(fetchAllQuestions('en',localStorage.getItem('i18nextLng')));
+   dispatch(fetchAllUsers('en',localStorage.getItem('i18nextLng')));
   //  dispatch()
   } catch (error) {
    console.log(error)
@@ -119,7 +117,7 @@ export const postAnswer = (answerdata) => async (dispatch) =>{
  export const voteQuestion = (id, value, userId) => async (dispatch) =>{
   try {
     const {data} = await api.voteQuestion(id, value, userId)
-    dispatch(fetchAllQuestions());
+    dispatch(fetchAllQuestions('en',localStorage.getItem('i18nextLng')));
     dispatch(fetchAllUsers('en',localStorage.getItem('i18nextLng')));
   } catch (error) {
     console.log(error)
