@@ -27,7 +27,7 @@ export const fetchAllQuestions = (source_lang,target_lang) => async (dispatch) =
     console.log("fetched data from server");
   try {
     const {data} = await api.getAllQuestions()
-    if(source_lang !== undefined && target_lang !== undefined)
+    if(source_lang !== undefined && target_lang !== undefined && target_lang!=='en')
     {
       const updated_data =  await Promise.all(
         data.map(async(question) => {
