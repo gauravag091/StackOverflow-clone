@@ -28,8 +28,7 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
-    "web-vitals": "^2.1.4",
-    "proxy":"`https://script.google.com/macros/s/AKfycbxuoilLT6Sbhofkukku7wMOVafdNZUdOe3KpHganBhLQmc2lUe9r6jvFd7fid3QOcs/exec"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
