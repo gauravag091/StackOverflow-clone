@@ -30,7 +30,7 @@ const QuestionDetail = () => {
 
   const User = useSelector((state)=> state.currentUserReducer)
   const location = useLocation()
-  const url = 'http://localhost:3000'
+  const url = 'https://stack-overflow-clone-r4e9-gauravag091.vercel.app/'
 
   const handlePosAns = (e,answerLength) =>{
     if(User === null)
