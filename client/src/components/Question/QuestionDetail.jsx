@@ -33,6 +33,7 @@ const QuestionDetail = () => {
   const url = 'https://stack-overflow-clone-r4e9-gauravag091.vercel.app/'
 
   const handlePosAns = (e,answerLength) =>{
+   e.preventDefault();
     if(User === null)
     {
       alert('Login or Signup to answer a question')
@@ -42,12 +43,12 @@ const QuestionDetail = () => {
     {
       if(Answer !== '')
       {
-        dispatch(postAnswer({id,noOfAnswers:answerLength+1, answerBody:Answer,userAnswered:User.result.name, userId:User.result._id}))
+        dispatch(postAnswer({id,noOfAnswers:answerLength+1, answerBody:Answer,userAnswered:User.result.name, userId:User.result._id}));
+        setAnswer("");
       }
       else
       {
         alert('please enter a answer')
-        e.preventDefault()
       }
     }
   }
