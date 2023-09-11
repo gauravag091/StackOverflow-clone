@@ -149,7 +149,7 @@ const QuestionDetail = () => {
               <section className="post-ans-container">
                 <h3>{your_ans}</h3>
                 <form onSubmit={(e)=>{handlePosAns(e,question.answer.length)}}>
-                <textarea name="" id="" cols="30" rows="10" onChange={(e) => setAnswer(e.target.value)}></textarea> <br />
+                <textarea name="" id="" cols="30" rows="10" value = {Answer} onChange={(e) => setAnswer(e.target.value)}></textarea> <br />
                 <input type="submit" className='post-ans-btn' value={your_ans} />
                 </form>
                 <p>
