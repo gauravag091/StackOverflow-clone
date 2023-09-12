@@ -44,7 +44,7 @@ export const fetchAllQuestions = (source_lang,target_lang) => async (dispatch) =
          
         const answers = await Promise.all(
           question.answer.map(async(answer) => {
-              let ans_text = answer.answerBody + "+" + answer.userAnswered;
+              let ans_text = answer.answerBody + " + " + answer.userAnswered;
               ans_text = ans_text.replaceAll('&','%26');
               ans_text = ans_text.replaceAll('+','%2B');
               ans_text = ans_text.replaceAll('=','%3D');
