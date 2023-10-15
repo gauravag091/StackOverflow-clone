@@ -1,4 +1,4 @@
-![Header](./client/public/github-header-image.png)
+<img src = "./client/public/github-header-image.png" />
 
 # StackOverflow Clone
 
