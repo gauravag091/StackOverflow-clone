@@ -1,4 +1,4 @@
-![Header](./github-header-image.png)
+![Header](./your-header-image-name.png)
 
 # StackOverflow Clone
 
