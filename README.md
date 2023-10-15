@@ -1,5 +1,3 @@
-<img src = "./client/public/github-header-image.png" />
-
 # StackOverflow Clone
 
 A full-stack web application developed as part of my internship at NullClass, replicating the functionality of the popular Q&A platform, StackOverflow.
